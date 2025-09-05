@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mastering the AP Macroeconomics Exam</title>
+<style>
+  body {
+    margin: 0;
+    font-family: "Helvetica", sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* Sidebar */
+  .modules {
+    width: 25%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    border-right: 1px solid #fff; /* invisible border */
+  }
+
+  h3 {
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 200;
+    display: block;
+    padding: 5px;
+    border-radius: 4px;
+    transition: font-weight 0.2s ease;
+  }
+
+  a:hover,
+  a.active {
+    font-weight: 700; /* bold on hover or active */
+  }
+
+  /* Right content */
+  .content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    box-sizing: border-box;
+    border-left: 1px solid #fff; /* invisible border */
+    overflow: hidden;
+  }
+
+  iframe {
+    width: 100%;
+    max-width: 980px;
+    height: 700px; /* fixed desktop height */
+    border: none;
+    border-radius: 4px;
+  }
+
+  /* --- Responsive Mobile Stacking --- */
+  @media (max-width: 768px) {
+    body {
+      flex-direction: column; /* stack instead of side-by-side */
+      height: auto; /* allow scroll */
+    }
+
+    .modules {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid #fff; /* invisible divider */
+    }
+
+    .content {
+      width: 100%;
+      padding: 10px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 500px; /* smaller for mobile */
+    }
+  }
+</style>
+<script>
+function setActiveLink(el){
+  document.querySelectorAll('.module-list a').forEach(l=>l.classList.remove('active'));
+  el.classList.add('active');
+}
+</script>
+</head>
+<body>
+
+<div class="modules">
+  <h3>Mastering the AP Macroeconomics Exam</h3>
+  <ul class="module-list">
+    <li><a href="https://pqhqvb1sr8g.typeform.com/to/I2b1avv3" target="content-frame" onclick="setActiveLink(this)">Scarcity</a></li>
+    <li><a href="https://pqhqvb1sr8g.typeform.com/to/I2b1avv3" target="content-frame" onclick="setActiveLink(this)">Introduction to Economic Thinking</a></li>
+    <li><a href="https://pqhqvb1sr8g.typeform.com/to/I2b1avv3" target="content-frame" onclick="setActiveLink(this)">The PPF</a></li>
+    <li><a href="https://pqhqvb1sr8g.typeform.com/to/I2b1avv3" target="content-frame" onclick="setActiveLink(this)">Market Equilibrium</a></li>
+    <li><a href="https://pqhqvb1sr8g.typeform.com/to/I2b1avv3" target="content-frame" onclick="setActiveLink(this)">Equilibrium Welfare</a></li>
+    <li><a href="https://pqhqvb1sr8g.typeform.com/to/I2b1avv3" target="content-frame" onclick="setActiveLink(this)">Consumer and Producer Surplus</a></li>
+    <li><a href="https://pqhqvb1sr8g.typeform.com/to/I2b1avv3" target="content-frame" onclick="setActiveLink(this)">Elasticity</a></li>
+    <li><a href="https://pqhqvb1sr8g.typeform.com/to/I2b1avv3" target="content-frame" onclick="setActiveLink(this)">Microeconomic Equilibrium</a></li>
+    <li><a href="https://pqhqvb1sr8g.typeform.com/to/I2b1avv3" target="content-frame" onclick="setActiveLink(this)">Time and Output</a></li>
+    <li><a href="https://pqhqvb1sr8g.typeform.com/to/I2b1avv3" target="content-frame" onclick="setActiveLink(this)">Cost and Output</a></li>
+    <li><a href="https://pqhqvb1sr8g.typeform.com/to/I2b1avv3" target="content-frame" onclick="setActiveLink(this)">Perfect Competition</a></li>
+  </ul>
+</div>
+
+<div class="content">
+  <iframe name="content-frame"></iframe>
+</div>
+
+</body>
+</html>
