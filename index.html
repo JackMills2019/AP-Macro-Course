@@ -11,6 +11,7 @@
     display: flex;
     height: 100vh;
     overflow: hidden;
+    transition: all 0.3s ease;
   }
 
   /* Sidebar */
@@ -20,6 +21,12 @@
     box-sizing: border-box;
     overflow-y: auto;
     border-right: 1px solid #fff; /* invisible border */
+    transition: transform 0.3s ease;
+  }
+
+  .collapsed .modules {
+    transform: translateX(-100%);
+    position: absolute;
   }
 
   h3 {
@@ -50,10 +57,10 @@
 
   a:hover,
   a.active {
-    font-weight: 700; /* bold on hover or active */
+    font-weight: 700;
   }
 
-  /* Right content */
+  /* Content area */
   .content {
     flex-grow: 1;
     display: flex;
@@ -62,28 +69,54 @@
     padding: 20px;
     box-sizing: border-box;
     border-left: 1px solid #fff; /* invisible border */
-    overflow: hidden;
+    position: relative;
   }
 
   iframe {
     width: 100%;
     max-width: 980px;
-    height: 700px; /* fixed desktop height */
+    height: 700px;
     border: none;
     border-radius: 4px;
+    transition: width 0.3s ease, height 0.3s ease;
   }
 
-  /* --- Responsive Mobile Stacking --- */
+  /* Fullscreen button */
+  .fullscreen-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 3;
+    background: #fff;
+    padding: 6px;
+    cursor: pointer;
+    border: none;
+  }
+
+  .fullscreen-btn svg {
+    width: 18px;
+    height: 18px;
+    stroke: #000;
+    stroke-width: 2;
+    fill: none;
+  }
+
+  /* When collapsed sidebar, content fills width */
+  .collapsed .content {
+    width: 100%;
+  }
+
+  /* Responsive */
   @media (max-width: 768px) {
     body {
-      flex-direction: column; /* stack instead of side-by-side */
-      height: auto; /* allow scroll */
+      flex-direction: column;
+      height: auto;
     }
 
     .modules {
       width: 100%;
       border-right: none;
-      border-bottom: 1px solid #fff; /* invisible divider */
+      border-bottom: 1px solid #fff; 
     }
 
     .content {
@@ -92,8 +125,7 @@
     }
 
     iframe {
-      width: 100%;
-      height: 500px; /* smaller for mobile */
+      height: 500px;
     }
   }
 </style>
@@ -101,6 +133,19 @@
 function setActiveLink(el){
   document.querySelectorAll('.module-list a').forEach(l=>l.classList.remove('active'));
   el.classList.add('active');
+}
+
+function toggleFullscreen(){
+  document.body.classList.toggle('collapsed');
+  const icon = document.getElementById('fullscreen-icon');
+
+  if(document.body.classList.contains('collapsed')){
+    // show X (close)
+    icon.setAttribute("d","M6 6l12 12M18 6L6 18");
+  } else {
+    // show expand arrows
+    icon.setAttribute("d","M4 14v6h6M20 10V4h-6M20 4l-6 6M4 20l6-6");
+  }
 }
 </script>
 </head>
@@ -120,10 +165,19 @@ function setActiveLink(el){
     <li><a href="https://pqhqvb1sr8g.typeform.com/to/I2b1avv3" target="content-frame" onclick="setActiveLink(this)">Time and Output</a></li>
     <li><a href="https://pqhqvb1sr8g.typeform.com/to/I2b1avv3" target="content-frame" onclick="setActiveLink(this)">Cost and Output</a></li>
     <li><a href="https://pqhqvb1sr8g.typeform.com/to/I2b1avv3" target="content-frame" onclick="setActiveLink(this)">Perfect Competition</a></li>
+    <li><a href="https://pqhqvb1sr8g.typeform.com/to/I2b1avv3" target="content-frame" onclick="setActiveLink(this)">Monopoly</a></li>
+    <li><a href="https://pqhqvb1sr8g.typeform.com/to/I2b1avv3" target="content-frame" onclick="setActiveLink(this)">Monopolistic Competition</a></li>
+    <li><a href="https://pqhqvb1sr8g.typeform.com/to/I2b1avv3" target="content-frame" onclick="setActiveLink(this)">Oligopoly</a></li>
   </ul>
 </div>
 
 <div class="content">
+  <button id="fullscreen-btn" class="fullscreen-btn" onclick="toggleFullscreen()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path id="fullscreen-icon"
+        d="M4 14v6h6M20 10V4h-6M20 4l-6 6M4 20l6-6"/>
+    </svg>
+  </button>
   <iframe name="content-frame"></iframe>
 </div>
 
